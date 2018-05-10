@@ -34,11 +34,18 @@ class App extends Component {
 
   render() {
     const { state: { persons } } = this
+    const style = {
+      backgroundColour: 'white',
+      font: 'inherit',
+      border: '1px solid blue',
+      padding: '8px',
+      cursor: 'pointer'
+    }
     return (
       <div className="App">
         <h1>Hiiiiiiiiiiii</h1>
         {/* Alternative way of doing function calls, instead of bind(this) but not recommended */}
-        <button onClick={()=>this.switchNameHandler('Maximillion')}>Switch Name</button>
+        <button style={style} onClick={()=>this.switchNameHandler('Maximillion')}>Switch Name</button>
         <Person
           name={persons[0].name}
           age={persons[0].age}/>
