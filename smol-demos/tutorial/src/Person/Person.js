@@ -1,6 +1,6 @@
 //most components don't need much they just return some html
 import React from 'react'
-
+import './Person.css'
 // const person = ( { name, age, children } ) => {
 //   // return <p>I'm a person and I am {Math.floor(Math.random()*100)} years old</p>
 //   return (
@@ -15,9 +15,10 @@ import React from 'react'
 const person = ( props ) => {
   // return <p>I'm a person and I am {Math.floor(Math.random()*100)} years old</p>
   return (
-    <div>
+    <div className="Person">
       <p onClick={props.click}>My name is {props.name} and I'm {props.age} years old</p>
       <p>{props.children}</p>
+      <input type="text" onChange={props.changed} value={props.name}/>
     </div>
 
   )
