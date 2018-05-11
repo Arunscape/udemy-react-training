@@ -31,7 +31,7 @@ class App extends Component {
     const letterarray = [ ...new Set( this.state.intxt ) ]
     // console.log( letterarray )
 
-    const letters = [];
+    // const letters = [];
     // WANT: ['a', 'b', 'c', 'd'] =>
     // [
     // {id:a},
@@ -40,8 +40,8 @@ class App extends Component {
     // {id:d}
     // ]
 
-    letterarray.forEach( l => { letters.push( { id: l, char: l } ) } )
-    console.log( letters )
+    // letterarray.forEach( l => { letters.push( { id: l, char: l } ) } )
+    // console.log( letters )
 
     return (
       <div className="App">
@@ -56,16 +56,13 @@ class App extends Component {
 
         {letterarray.map((c, idx)=>{
           return (
-            <div>
-              <CharComponent
-                key={c}
-                style={style}
-                char={c}
-                click= {this.deleteBoxHandler.bind(this, idx)}
-              />
-            </div>
+            <CharComponent
+              key={c}
+              style={style}
+              char={c}
+              click= {this.deleteBoxHandler.bind(this, idx)}
+            />
           )
-
         })}
 
       </div>
