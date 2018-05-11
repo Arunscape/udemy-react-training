@@ -15,7 +15,8 @@ class App extends Component {
 
   deleteBoxHandler = ( char ) => {
     // this.setState( { intxt: this.state.intxt.slice( 0, index ) + this.state.intxt.slice( index + 1 ) } )
-    this.setState( { intxt: this.state.intxt.replace( new RegExp( char, 'g' ), '' ) } )
+    const replacement = this.state.intxt.replace( new RegExp( char, 'g' ), '' )
+    this.setState( { intxt: replacement, inputlength: replacement.length } )
   }
 
   // console.log( letterarray )
