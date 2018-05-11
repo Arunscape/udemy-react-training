@@ -13,9 +13,9 @@ class App extends Component {
     this.setState( { inputlength: event.target.value.length, intxt: event.target.value } )
   }
 
-  deleteBoxHandler = ( index ) => {
-    // const b = [ ...this. ]
-
+  deleteBoxHandler = ( char ) => {
+    // this.setState( { intxt: this.state.intxt.slice( 0, index ) + this.state.intxt.slice( index + 1 ) } )
+    this.setState( { intxt: this.state.intxt.replace( new RegExp( char, 'g' ), '' ) } )
   }
 
   // console.log( letterarray )
@@ -48,6 +48,7 @@ class App extends Component {
         <input
           type="text"
           onChange={(event)=>this.inputChangeHandler(event)}
+          value={this.state.intxt}
         />
 
         <p>Length of text entered: {this.state.inputlength}</p>
@@ -60,7 +61,8 @@ class App extends Component {
               key={c}
               style={style}
               char={c}
-              click= {this.deleteBoxHandler.bind(this, idx)}
+              click= {this.deleteBoxHandler.bind(this, c)}
+              // click={this.deleteBoxHandler(idx)}
             />
           )
         })}

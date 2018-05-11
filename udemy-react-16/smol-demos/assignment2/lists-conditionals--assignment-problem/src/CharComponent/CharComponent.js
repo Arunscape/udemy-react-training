@@ -2,7 +2,9 @@ import React from 'react'
 
 const CharComponent = ( props ) => {
   return (
-    <div>
+    <div
+      style={props.style}
+      onClick={props.click}>
       {props.char}
     </div>
   )
