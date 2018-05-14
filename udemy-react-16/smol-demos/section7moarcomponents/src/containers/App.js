@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import classes from './App.css';
-import Person from './Person/Person';
+import Person from '../components/Persons/Person/Person';
 
 class App extends Component {
   state = {
@@ -19,22 +19,22 @@ class App extends Component {
     } );
 
     const person = {
-      ...this.state.persons[personIndex]
+      ...this.state.persons[ personIndex ]
     };
 
     // const person = Object.assign({}, this.state.persons[personIndex]);
 
     person.name = event.target.value;
 
-    const persons = [...this.state.persons];
-    persons[personIndex] = person;
+    const persons = [ ...this.state.persons ];
+    persons[ personIndex ] = person;
 
     this.setState( { persons: persons } );
   }
 
   deletePersonHandler = ( personIndex ) => {
     // const persons = this.state.persons.slice();
-    const persons = [...this.state.persons];
+    const persons = [ ...this.state.persons ];
     persons.splice( personIndex, 1 );
     this.setState( { persons: persons } );
   }
@@ -44,7 +44,7 @@ class App extends Component {
     this.setState( { showPersons: !doesShow } );
   }
 
-  render () {
+  render() {
     let persons = null;
     let btnClass = '';
 
@@ -74,7 +74,7 @@ class App extends Component {
     }
 
     return (
-        <div className={classes.App}>
+      <div className={classes.App}>
           <h1>Hi, I'm a React App</h1>
           <p className={assignedClasses.join( ' ' )}>This is really working!</p>
           <button
