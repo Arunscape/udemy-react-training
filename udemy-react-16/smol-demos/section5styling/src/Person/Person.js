@@ -1,7 +1,7 @@
 //most components don't need much they just return some html
 import React from 'react'
 import './Person.css'
-import Radium from 'radium'
+
 // const person = ( { name, age, children } ) => {
 //   // return <p>I'm a person and I am {Math.floor(Math.random()*100)} years old</p>
 //   return (
@@ -15,11 +15,8 @@ import Radium from 'radium'
 
 const person = ( props ) => {
   // return <p>I'm a person and I am {Math.floor(Math.random()*100)} years old</p>
-  const style = {
-    '@media (min-width:500px)': {
-      width: '450px'
-    }
-  }
+  const style = {}
+
   return (
     <div className="Person" style={style}>
         <p onClick={props.click}>My name is {props.name} and I'm {props.age} years old</p>
@@ -29,7 +26,7 @@ const person = ( props ) => {
   )
 }
 
-export default Radium( person )
+export default person
 //
 // functions: props.name, props.age
 // classes: this.props.name, this.props.age
