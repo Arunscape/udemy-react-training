@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Person from './Person/Person'
+import Radium, { StyleRoot } from 'radium'
 
 class App extends Component {
   //state exists because App extends Component
@@ -58,7 +59,11 @@ class App extends Component {
       font: 'inherit',
       border: '1px solid blue',
       padding: '8px',
-      cursor: 'pointer'
+      cursor: 'pointer',
+      ':hover': {
+        backgroundColor: 'lightgreen',
+        color: 'black'
+      }
     }
 
     let p = null
@@ -95,22 +100,35 @@ class App extends Component {
                 /> */}
         </div>
       )
+      style.backgroundColor = 'red'
+      style[ ':hover' ] = {
+        backgroundColor: 'salmon',
+        color: 'black'
+      }
     }
+
+    const classes = []
+    if ( this.state.persons.length <= 2 ) classes.push( 'red' )
+    if ( this.state.persons.length <= 1 ) classes.push( 'bold' )
     return (
-      <div className="App">
-        <h1>Hiiiiiiiiiiii</h1>
-        {/* Alternative way of doing function calls, instead of bind(this) but not recommended */}
-        <button
-          style={style}
-          onClick={this.togglePersonsHandler}
-        >Switch Name
-        </button>
+      <StyleRoot>
+        <div className="App">
+          <h1>Hiiiiiiiiiiii</h1>
+          <p className={classes.join(' ')}> Wooaooaaaaahhhh</p>
 
-        {p}
+          {/* Alternative way of doing function calls, instead of bind(this) but not recommended */}
+          <button
+            style={style}
+            onClick={this.togglePersonsHandler}
+          >Switch Name
+          </button>
 
-      </div>
+          {p}
+
+        </div>
+      </StyleRoot>
     );
   }
 }
 
-export default App;
+export default Radium( App );
